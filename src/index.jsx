@@ -2,11 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import { Content, Typing } from './Components';
 
-const Chatbox = ({ className, message, send, leave,fontSize }) => {
+const Chatbox = ({ className,userInfo, message, onSend, onLeave,fontSize }) => {
   return (
     <div className={className}>
       <Content message={message} />
-      <Typing leave={leave} send={send} fontSize={fontSize} />
+      <Typing userInfo={userInfo} onLeave={onLeave} onSend={onSend} fontSize={fontSize} />
     </div>
   );
 };
