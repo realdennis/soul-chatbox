@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import ReactDOM from "react-dom";
-import Chatbox from "../../src/index";
-import FakeForm from "./FakeForm";
-import "./styles.css";
+import React, { useState } from 'react';
+import ReactDOM from 'react-dom';
+import Chatbox from '../../src/index';
+import FakeForm from './FakeForm';
+import './styles.css';
 /*
 message structure is 
 {
@@ -18,9 +18,13 @@ const App = () => {
   return (
     <div className="App">
       <Chatbox
-        send={val => setMessage([...message, val])}
-        leave={val => setMessage([])}
+        onSend={val => {
+          console.log('[Typing From] ', val);
+          setMessage([...message, val]);
+        }}
+        onLeave={() => setMessage([])}
         message={message}
+        userInfo={{ nickname: 'Dennis', sex: 'boy' }}
         fontSize={14}
       />
       <FakeForm message={message} setMessage={setMessage} />
@@ -28,5 +32,5 @@ const App = () => {
   );
 };
 
-const rootElement = document.getElementById("root");
+const rootElement = document.getElementById('root');
 ReactDOM.render(<App />, rootElement);
