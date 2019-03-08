@@ -1,19 +1,29 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import styled from 'styled-components';
-const Typing = ({ className, send, leave }) => {
-  const onsubmit = e => {
-    const message = e.currentTarget.message.value;
-    e.currentTarget.message.value = '';
+const Typing = ({
+  className,
+  onSend,
+  onLeave,
+  userInfo = { nickname: 'anonymous', sex: 'unknown' }
+}) => {
+  const onSubmit = e => {
     e.preventDefault();
+    const { nickname, sex } = userInfo;
+    const form = FormRef.current;
+    const message = form.message.value;
+    form.message.value = '';
     message.length > 0 &&
-      send({
-        text: message,
-        who: 'me'
+      onSend({
+        who: 'me',
+        sex,
+        nickname,
+        text: message
       });
   };
+  const FormRef = useRef(null);
   return (
-    <form onSubmit={onsubmit} className={className}>
-      <div className="btn" onClick={leave}>
+    <form ref={FormRef} onSubmit={onSubmit} className={className}>
+      <div className="btn" onClick={onLeave}>
         <span role="img" aria-label="Leave">
           🚫
         </span>
@@ -25,12 +35,7 @@ const Typing = ({ className, send, leave }) => {
         autoComplete="off"
         maxLength="100"
       />
-      <div
-        className="btn"
-        onClick={e => {
-          e.currentTarget.parentElement.dispatchEvent(new Event('submit'));
-        }}
-      >
+      <div className="btn" onClick={onSubmit}>
         <span role="img" aria-label="Send">
           👉
         </span>
