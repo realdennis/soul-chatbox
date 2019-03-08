@@ -10,8 +10,8 @@ React Chatbox component
 ```jsx
 <Chatbox
   message={[]}
-  send = {/*send button callback*/}
-  leave = {/*leave button callback*/}
+  onSend = {/*send button callback*/}
+  onLeave = {/*leave button callback*/}
   userInfo = {{nickname:'<String>',sex:'boy||girl'}}
   height={/*<Number> ex 400 => 400px  default=100%*/}
   width={/*<Number> same as above   default=100%*/}
@@ -23,8 +23,8 @@ React Chatbox component
 
 ```javascript
 const mes = {
-  who: 'you' || 'me',
-  sex: 'boy' || 'girl',
+  who: 'me' || 'you',
+  sex: 'boy' || 'girl' ||'unknown',
   nickname: '<String>',
   text: '<String>'
 };
@@ -35,10 +35,6 @@ const mes = {
 ```jsx
 // ./App.jsx
 import Chatbox from 'soul-chatbox';
-const userInfo = {
-  nickname: 'Dennis',
-  sex: 'boy'
-};
 export default () => {
   const [message, setMessage] = useState([]);
   const onSend = mes => {
@@ -52,10 +48,14 @@ export default () => {
         message={message}
         onSend={onSend}
         onLeave={onLeave}
-        userInfo={userInfo}
+        userInfo={{
+          nickname: 'Dennis',
+          sex: 'boy'
+        }}
         height={400}
         fontSize={14}
       />
+      {/* userInfo 將決定onSend拿到的mes的nickname與sex */}
     </>
   );
 };
