@@ -1,5 +1,5 @@
-import React, { useRef } from "react";
-import "./index.css";
+import React, { useRef } from 'react';
+import './index.css';
 const FakeForm = ({ message, setMessage }) => {
   const formRef = useRef(null);
   const onSubmit = e => {
@@ -10,6 +10,7 @@ const FakeForm = ({ message, setMessage }) => {
       nickname: formRef.current.nickname.value,
       text: formRef.current.text.value
     };
+    console.log('[Fake Form] ', val);
     setMessage([...message, val]);
   };
   return (
