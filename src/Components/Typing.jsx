@@ -46,7 +46,7 @@ const Typing = ({
 export default styled(Typing)`
   flex-shrink: 0;
   background-color: rgb(240, 240, 240);
-  height: ${props => (props.fontSize ? 3 * props.fontSize + 'px' : '50px')};
+  height: 45px;
   display: flex;
   align-items: center;
   .btn {
@@ -68,5 +68,6 @@ export default styled(Typing)`
     border: none;
     outline: none;
     background-color: white;
+    font-size:16px;
   }
 `;

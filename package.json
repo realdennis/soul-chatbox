@@ -1,6 +1,6 @@
 {
   "name": "soul-chatbox",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "description": "Simple Chatbox React component",
   "main": "dist/index.js",
   "author": "@realdennis",

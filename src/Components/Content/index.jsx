@@ -30,10 +30,17 @@ export default styled(Content)`
   position: relative;
   display: flex;
   flex-direction: column-reverse;
-  background-color: #dfe6e9;
+  /*background-color: #dfe6e9;*/
+  align-items: center;
   div.box {
+    background-color: rgba(244, 244, 244, 0.4);
+    padding: 5px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    width: 90%;
+    max-width:680px;
     max-height: 100%;
     overflow: auto;
-    -webkit-overflow-scrolling:touch;
+    -webkit-overflow-scrolling: touch;
   }
 `;

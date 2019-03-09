@@ -10,4 +10,5 @@ body {
   height: 100%;
   display: flex;
   align-items: center;
+  background: linear-gradient(90deg, #f9cdc2, #d5f0fa);
 }
