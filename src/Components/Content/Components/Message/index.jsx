@@ -34,9 +34,9 @@ const Circle = styled.div`
   font-size: 28px;
 `;
 const Pre = styled.pre`
-  background-color: rgb(244, 244, 244);
+  background-color:${props=>isMe(props.who)?'rgb(33,150,243)':'rgb(244, 244, 244)'};
   max-width: 90%;
-  color: black;
+  color: ${props=>isMe(props.who)?'white':'black'};
   border-radius: 0.8em;
   padding: 0.5em 0.8em;
   margin: 0.5em;
@@ -44,7 +44,7 @@ const Pre = styled.pre`
   word-wrap: break-word;
   white-space: pre-wrap;
   line-height: 1em;
-  font-size: inherit;
+  font-size: 16px;
   max-width: ${props => isMe(props.who) && '100%'};
 `;
 const Message = ({
