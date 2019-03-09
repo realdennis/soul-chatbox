@@ -20,7 +20,8 @@ React Chatbox component
 
 ```javascript
 const mes = {
-  who: 'me' || 'system' || 'others',
+  who: 'me' || 'you' || 'system' ,
+
   sex: 'boy' || 'girl' ||'unknown',
   nickname: '<String>',
   text: '<String>'
