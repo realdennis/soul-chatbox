@@ -19,6 +19,9 @@ const Mess = styled.div`
 `;
 const TextWrapper = styled.div`
   max-width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 `;
 const Nickname = styled.div`
   padding-left: 1em;
@@ -50,8 +53,7 @@ const Text = styled.pre`
     }
   }};
   max-width: 90%;
-
-  line-height: 20px;
+  line-height: 20px  !important;;
   color: ${props => {
     switch (props.who) {
       case 'me':
