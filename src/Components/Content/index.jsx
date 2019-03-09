@@ -35,10 +35,11 @@ export default styled(Content)`
   div.box {
     background-color: rgba(244, 244, 244, 0.4);
     padding: 5px;
+    padding-top: 10px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     width: 90%;
-    max-width:680px;
+    max-width: 680px;
     max-height: 100%;
     overflow: auto;
     -webkit-overflow-scrolling: touch;
