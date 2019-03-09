@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+const isLeftGuy = who => who !== 'me' && who !== 'system';
 const isMe = who => who === 'me';
 const sexColor = sex => {
   if (sex === 'girl') return '#FDA7DF';
@@ -7,13 +8,17 @@ const sexColor = sex => {
   else return 'gray';
 };
 const Mess = styled.div`
+  width:100%;
   display: flex;
-  flex-direction: ${props => isMe(props.who) && 'row-reverse'};
-  align-items: flex-start;
-  margin: 5px;
+  /*flex-direction: ${props => isMe(props.who) && 'row-reverse'};*/
+  justify-content:${props => {
+    if (props.who === 'me') return 'flex-end';
+    if (props.who === 'system') return 'center';
+    else return 'flex-start';
+  }};
 `;
-const Text = styled.div`
-  flex-direction: ${props => isMe(props.who) && 'row-reverse'};
+const TextWrapper = styled.div`
+  max-width: 80%;
 `;
 const Nickname = styled.div`
   padding-left: 1em;
@@ -33,10 +38,30 @@ const Circle = styled.div`
   align-items: center;
   font-size: 28px;
 `;
-const Pre = styled.pre`
-  background-color:${props=>isMe(props.who)?'rgb(33,150,243)':'rgb(244, 244, 244)'};
+const Text = styled.pre`
+  background-color: ${props => {
+    switch (props.who) {
+      case 'me':
+        return 'rgb(33,150,243)';
+      case 'system':
+        return '';
+      default:
+        return 'rgb(244, 244, 244)';
+    }
+  }};
   max-width: 90%;
-  color: ${props=>isMe(props.who)?'white':'black'};
+
+  line-height: 20px;
+  color: ${props => {
+    switch (props.who) {
+      case 'me':
+        return 'white';
+      case 'system':
+        return 'rgba(0,0,0,0.5)';
+      default:
+        return 'black';
+    }
+  }};
   border-radius: 0.8em;
   padding: 0.5em 0.8em;
   margin: 0.5em;
@@ -45,7 +70,6 @@ const Pre = styled.pre`
   white-space: pre-wrap;
   line-height: 1em;
   font-size: 16px;
-  max-width: ${props => isMe(props.who) && '100%'};
 `;
 const Message = ({
   who = 'me',
@@ -55,11 +79,11 @@ const Message = ({
 }) => {
   return (
     <Mess who={who}>
-      {!isMe(who) && <Circle sex={sex}>{nickname[0].toUpperCase()}</Circle>}
-      <Text who={who}>
-        {!isMe(who) && <Nickname>{nickname}</Nickname>}
-        <Pre who={who}>{text}</Pre>
-      </Text>
+      {isLeftGuy(who) && <Circle sex={sex}>{nickname[0].toUpperCase()}</Circle>}
+      <TextWrapper>
+        {isLeftGuy(who) && <Nickname>{nickname}</Nickname>}
+        <Text who={who}>{text}</Text>
+      </TextWrapper>
     </Mess>
   );
 };

@@ -34,7 +34,7 @@ export default styled(Content)`
   align-items: center;
   div.box {
     background-color: rgba(244, 244, 244, 0.4);
-    padding: 10px;
+    padding: 5px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     width: 90%;
