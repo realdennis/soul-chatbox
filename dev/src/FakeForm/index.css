@@ -1,8 +1,9 @@
 #form-wrapper {
   display: flex;
   flex-direction: column;
-  width: 300px;
+  width: 200px;
   padding: 10px;
+  flex-shrink:0;
 }
 form#fake {
   display: flex;
