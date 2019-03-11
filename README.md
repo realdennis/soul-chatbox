@@ -2,8 +2,12 @@
 
 React Chatbox component
 
-[CodeSandbox demo](https://codesandbox.io/s/5zxx9mwkyn)
 ![Imgur](https://i.imgur.com/b6MMe8M.png)
+<br/>
+[Component demo](https://codesandbox.io/s/5zxx9mwkyn)
+<br/>
+[Full App demo](https://codesandbox.io/s/5k2oj426nx)
+<br/>
 
 ### Just a component
 
