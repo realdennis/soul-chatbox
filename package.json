@@ -1,8 +1,11 @@
 {
   "name": "soul-chatbox",
-  "version": "0.0.5",
+  "version": "0.0.6-beta",
   "description": "Simple Chatbox React component",
-  "main": "dist/index.js",
+  "files": [
+    "dist/"
+  ],
+  "main": "index.js",
   "author": "@realdennis",
   "license": "MIT",
   "private": false,
