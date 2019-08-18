@@ -1,9 +1,14 @@
-import React, { useEffect, useRef } from 'react';
+import * as React from 'react';
 import styled from 'styled-components';
 import { Message } from './Components';
 import { scrollToBottom, checkHasBottom } from './Lib';
-
-const Content = ({ className, message }) => {
+import { message } from '../../type';
+const { useEffect, useRef } = React;
+interface ContentProps {
+  className?: string;
+  messages: message[];
+}
+const Content: React.FC<ContentProps> = ({ className, messages }) => {
   const ref = useRef(null);
   useEffect(() => {
     checkHasBottom(ref.current) && scrollToBottom(ref.current);
@@ -12,7 +17,7 @@ const Content = ({ className, message }) => {
   return (
     <div className={className}>
       <div ref={ref} className="box">
-        {message.map((m, index) => (
+        {messages.map((m, index) => (
           <Message
             key={index}
             text={m.text}

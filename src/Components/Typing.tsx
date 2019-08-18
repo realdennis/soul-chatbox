@@ -1,12 +1,14 @@
-import React, { useRef } from 'react';
+import * as React from 'react';
 import styled from 'styled-components';
-const Typing = ({
+import { typingProps } from '../type';
+const { useRef } = React;
+const Typing: React.FC<typingProps> = ({
   className,
   onSend,
   onLeave,
   userInfo = { nickname: 'anonymous', sex: 'unknown' }
 }) => {
-  const onSubmit = e => {
+  const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const { nickname, sex } = userInfo;
     const form = FormRef.current;
@@ -33,7 +35,7 @@ const Typing = ({
         type="text"
         placeholder="請輸入訊息..."
         autoComplete="off"
-        maxLength="100"
+        maxLength={100}
       />
       <div className="btn" onClick={onSubmit}>
         <span role="img" aria-label="Send">
@@ -68,6 +70,6 @@ export default styled(Typing)`
     border: none;
     outline: none;
     background-color: white;
-    font-size:16px;
+    font-size: 16px;
   }
 `;

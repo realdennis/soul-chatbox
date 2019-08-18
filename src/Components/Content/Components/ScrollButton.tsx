@@ -1,17 +1,13 @@
-import React from 'react';
+import * as React from 'react';
 import styled from 'styled-components';
 import { scrollToBottom } from '../Lib';
 const Scroll = ({ className }) => {
-  const Click = e=>{
+  const Click = (e: React.MouseEvent) => {
     scrollToBottom(e.currentTarget.parentElement.parentElement);
-  }
+  };
   return (
     <div className={className}>
-      <span
-        role="img"
-        aria-label="down"
-        onClick={Click}
-      >
+      <span role="img" aria-label="down" onClick={Click}>
         ⬇️
       </span>
     </div>

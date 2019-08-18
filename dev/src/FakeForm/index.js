@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import './index.css';
-const FakeForm = ({ message, setMessage }) => {
+const FakeForm = ({ messages = [], setMessages }) => {
   const formRef = useRef(null);
   const onSubmit = e => {
     e.preventDefault();
@@ -11,7 +11,8 @@ const FakeForm = ({ message, setMessage }) => {
       text: formRef.current.text.value
     };
     console.log('[Fake Form] ', val);
-    setMessage([...message, val]);
+    console.log(messages);
+    setMessages([...messages, val]);
   };
   return (
     <div id="form-wrapper">

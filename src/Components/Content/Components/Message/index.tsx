@@ -1,13 +1,17 @@
-import React from 'react';
+import * as React from 'react';
 import styled from 'styled-components';
-const isLeftGuy = who => who !== 'me' && who !== 'system';
-const isMe = who => who === 'me';
-const sexColor = sex => {
+import { message } from '../../../../type';
+interface validate {
+  (input: string): boolean;
+}
+const isLeftGuy: validate = who => who !== 'me' && who !== 'system';
+const isMe: validate = who => who === 'me';
+const sexColor: (sex: string) => string = sex => {
   if (sex === 'girl') return '#FDA7DF';
   else if (sex === 'boy') return '#1DA1F2';
   else return 'gray';
 };
-const Mess = styled.div`
+const Mess = (styled as any).div`
   width:100%;
   display: flex;
   /*flex-direction: ${props => isMe(props.who) && 'row-reverse'};*/
@@ -17,22 +21,22 @@ const Mess = styled.div`
     else return 'flex-start';
   }};
 `;
-const TextWrapper = styled.div`
+const TextWrapper = (styled as any).div`
   max-width: 80%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 `;
-const Nickname = styled.div`
+const Nickname = (styled as any).div`
   padding-left: 1em;
   opacity: 0.5;
   font-size: 14px;
 `;
-const Circle = styled.div`
+const Circle = (styled as any).div`
   width: 40px;
   height: 40px;
   border-radius: 100%;
-  background-color: ${props => sexColor(props.sex)};
+  background-color: ${(props: message) => sexColor(props.sex)};
   user-select: none;
   flex-shrink: 0;
   color: white;
@@ -41,7 +45,7 @@ const Circle = styled.div`
   align-items: center;
   font-size: 28px;
 `;
-const Text = styled.pre`
+const Text = (styled as any).pre`
   background-color: ${props => {
     switch (props.who) {
       case 'me':
@@ -53,8 +57,8 @@ const Text = styled.pre`
     }
   }};
   max-width: 90%;
-  line-height: 20px  !important;;
-  color: ${props => {
+  line-height: 20px !important;
+  color: ${(props: message) => {
     switch (props.who) {
       case 'me':
         return 'white';
@@ -73,7 +77,7 @@ const Text = styled.pre`
   line-height: 1em;
   font-size: 16px;
 `;
-const Message = ({
+const Message: React.FC<message> = ({
   who = 'me',
   sex = 'unknown',
   nickname = 'unknown',
