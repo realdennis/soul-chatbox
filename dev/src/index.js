@@ -14,20 +14,20 @@ message structure is
 
  */
 const App = () => {
-  const [message, setMessage] = useState([]);
+  const [messages, setMessages] = useState([]);
   return (
     <div className="App">
       <Chatbox
         onSend={val => {
           console.log('[Typing From] ', val);
-          setMessage([...message, val]);
+          setMessages([...messages, val]);
         }}
-        onLeave={() => setMessage([])}
-        message={message}
+        onLeave={() => setMessages([])}
+        messages={messages}
         userInfo={{ nickname: 'Dennis', sex: 'boy' }}
         fontSize={14}
       />
-      <FakeForm message={message} setMessage={setMessage} />
+      <FakeForm messages={messages} setMessages={setMessages} />
     </div>
   );
 };
