@@ -7,7 +7,7 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "build": "microbundle src/index.jsx --jsx React.createElement",
+    "build": "microbundle src/index.tsx --jsx react && rm -rf .rts2_cache*/",
     "dev": "parcel dev/index.html"
   },
   "dependencies": {
