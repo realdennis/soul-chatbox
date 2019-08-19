@@ -1,6 +1,6 @@
 {
   "name": "soul-chatbox",
-  "version": "0.0.8",
+  "version": "0.0.8-alpha1",
   "description": "Simple Chatbox React component",
   "files": [
     "dist"
@@ -11,7 +11,8 @@
   "private": false,
   "scripts": {
     "build": "microbundle src/index.tsx --jsx react && rm -rf .rts2_cache*/",
-    "dev": "parcel dev/index.html"
+    "dev": "parcel dev/index.html",
+    "prepublishOnly": "yarn build"
   },
   "dependencies": {
     "styled-components": "^4.3.2"
