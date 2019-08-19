@@ -8,7 +8,7 @@ export interface message extends userInfo {
 }
 
 export interface typingProps {
-  className?: string; // For styled
+  // className?: string; // For styled
   userInfo: userInfo;
   onSend: (message: message) => void;
   onLeave: () => void;

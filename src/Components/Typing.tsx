@@ -2,7 +2,7 @@ import * as React from 'react';
 import styled from 'styled-components';
 import { typingProps } from '../type';
 const { useRef } = React;
-const Typing: React.FC<typingProps> = ({
+const Typing = ({
   className,
   onSend,
   onLeave,
@@ -72,4 +72,4 @@ export default styled(Typing)`
     background-color: white;
     font-size: 16px;
   }
-`;
+` as React.FC<typingProps>;

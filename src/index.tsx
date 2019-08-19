@@ -3,13 +3,7 @@ import styled from 'styled-components';
 import { Content, Typing } from './Components';
 import { ChatboxProps } from './type';
 
-const Chatbox: React.FC<ChatboxProps> = ({
-  className,
-  userInfo,
-  messages,
-  onSend,
-  onLeave
-}) => {
+const Chatbox = ({ className, userInfo, messages, onSend, onLeave }) => {
   return (
     <div className={className}>
       <Content messages={messages} />
@@ -22,4 +16,4 @@ export default styled(Chatbox)`
   width: 100%;
   display: flex;
   flex-direction: column;
-`;
+` as React.FC<ChatboxProps>;
